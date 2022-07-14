@@ -9,22 +9,22 @@ final class ImageTest extends TestCase
 {
     public function testImageUrlUses640x680AsTheDefaultSize()
     {
-        $this->assertRegExp('#^https://lorempixel.com/640/480/#', Image::imageUrl());
+        $this->assertRegExp('#^https://picsum.photos/640/480/#', Image::imageUrl());
     }
 
     public function testImageUrlAcceptsCustomWidthAndHeight()
     {
-        $this->assertRegExp('#^https://lorempixel.com/800/400/#', Image::imageUrl(800, 400));
+        $this->assertRegExp('#^https://picsum.photos/800/400/#', Image::imageUrl(800, 400));
     }
 
     public function testImageUrlAcceptsCustomCategory()
     {
-        $this->assertRegExp('#^https://lorempixel.com/800/400/nature/#', Image::imageUrl(800, 400, 'nature'));
+        $this->assertRegExp('#^https://picsum.photos/800/400/nature/#', Image::imageUrl(800, 400, 'nature'));
     }
 
     public function testImageUrlAcceptsCustomText()
     {
-        $this->assertRegExp('#^https://lorempixel.com/800/400/nature/Faker#', Image::imageUrl(800, 400, 'nature', false, 'Faker'));
+        $this->assertRegExp('#^https://picsum.photos/800/400/nature/Faker#', Image::imageUrl(800, 400, 'nature', false, 'Faker'));
     }
 
     public function testImageUrlReturnsLinkToRegularImageWhenGrayIsFalse()
@@ -38,7 +38,7 @@ final class ImageTest extends TestCase
             false
         );
 
-        $this->assertSame('https://lorempixel.com/800/400/nature/Faker/', $imageUrl);
+        $this->assertSame('https://picsum.photos/800/400/nature/Faker/', $imageUrl);
     }
 
     public function testImageUrlReturnsLinkToRegularImageWhenGrayIsTrue()
@@ -52,7 +52,7 @@ final class ImageTest extends TestCase
             true
         );
 
-        $this->assertSame('https://lorempixel.com/gray/800/400/nature/Faker/', $imageUrl);
+        $this->assertSame('https://picsum.photos/gray/800/400/nature/Faker/', $imageUrl);
     }
 
     public function testImageUrlAddsARandomGetParameterByDefault()
@@ -76,7 +76,7 @@ final class ImageTest extends TestCase
     {
         $this->markTestSkipped('Skipped due to unstable service prior 1.9.0 release');
 
-        $url = "http://lorempixel.com/";
+        $url = "http://picsum.photos/";
         $curlPing = curl_init($url);
         curl_setopt($curlPing, CURLOPT_TIMEOUT, 5);
         curl_setopt($curlPing, CURLOPT_CONNECTTIMEOUT, 5);

@@ -3,13 +3,13 @@
 namespace Faker\Provider;
 
 /**
- * Depends on image generation from http://lorempixel.com/
+ * Depends on image generation from https://picsum.photos/
  */
 class Image extends Base
 {
     protected static $categories = array(
-        'abstract', 'animals', 'business', 'cats', 'city', 'food', 'nightlife',
-        'fashion', 'people', 'nature', 'sports', 'technics', 'transport'
+//        'abstract', 'animals', 'business', 'cats', 'city', 'food', 'nightlife',
+//        'fashion', 'people', 'nature', 'sports', 'technics', 'transport'
     );
 
     /**
@@ -17,7 +17,7 @@ class Image extends Base
      *
      * Set randomize to false to remove the random GET parameter at the end of the url.
      *
-     * @example 'http://lorempixel.com/640/480/?12345'
+     * @example 'https://picsum.photos/640/480/?12345'
      *
      * @param integer $width
      * @param integer $height
@@ -30,7 +30,7 @@ class Image extends Base
      */
     public static function imageUrl($width = 640, $height = 480, $category = null, $randomize = true, $word = null, $gray = false)
     {
-        $baseUrl = "https://lorempixel.com/";
+        $baseUrl = "https://picsum.photos/";
         $url = "{$width}/{$height}/";
 
         if ($gray) {
